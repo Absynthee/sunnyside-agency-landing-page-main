@@ -41,12 +41,17 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
+- CSS nesting
+- Javascript
+- jQuery
 
 ### What I learned
 
+I managed to complete this challenge much quicker than the last one, so I added more quirks to the design to spruce up the interactive aspect of the site, making it more fun and playful. Nothing was too difficult, except the javascript as I'm still in the process of learning that. 
 
 ### Continued development
 
+It would be nice to learn more about how to use javascript for the mobile nav bar. I feel like my setup for it is very basic and could be improved upon.
 
 ## Author
 
