@@ -101,6 +101,42 @@ a {
   color: var(--Verydarkblue);
 }
 
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(2x, -2px) rotate(-1deg);
+  }
+}
+
 h1 {
   font-family: var(--Fontfamily2);
   font-weight: 900;
@@ -109,6 +145,11 @@ h1 {
   font-size: 3rem;
   margin-top: calc(75px + 1%);
   color: var(--White);
+
+  &:hover {
+    animation: shake 2s;
+    animation-iteration-count: infinite;
+  }
 }
 
 h2 {
@@ -116,6 +157,11 @@ h2 {
   font-weight: 900;
   font-size: 2.5rem;
   color: var(--Verydarkblue);
+
+  &:hover {
+    animation: shake 2s;
+    animation-iteration-count: infinite;
+  }
 }
 
 h3 {
@@ -161,7 +207,9 @@ header {
   text-align: center;
   transition: all 1s;
 
-  h1 {
+  h1,
+  a {
+    align-self: center;
     z-index: 1;
   }
 
@@ -204,7 +252,6 @@ header {
   nav a {
     margin-left: 50px;
     transition: filter 0.5s;
-
     &:hover {
       filter: invert();
     }
@@ -255,22 +302,26 @@ header {
       margin-top: 30px;
       margin-bottom: 40px;
     }
+  }
 
-    a {
-      font-family: var(--Fontfamily2);
-      color: var(--Verydarkblue);
-      text-transform: uppercase;
-      font-weight: 900;
-      text-decoration: underline 5px solid yellow;
-      padding-left: 10px;
-    }
+  .img-container {
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    aspect-ratio: 1/0.83;
   }
 
   .transform-img {
-    width: 50%;
+    width: 100%;
+    height: 100%;
     background-image: url(../images/desktop/image-transform.jpg);
     background-position: center;
     background-size: cover;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(110%);
+    }
   }
 }
 
@@ -297,22 +348,71 @@ header {
       margin-top: 30px;
       margin-bottom: 40px;
     }
+  }
 
-    a {
-      font-family: var(--Fontfamily2);
-      color: var(--Verydarkblue);
-      text-transform: uppercase;
-      font-weight: 900;
-      text-decoration: underline 5px solid pink;
-      padding-left: 10px;
-    }
+  .img-container {
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    aspect-ratio: 1/0.83;
   }
 
   .standout-img {
-    width: 50%;
+    width: 100%;
+    height: 100%;
     background-image: url(../images/desktop/image-stand-out.jpg);
     background-position: center;
     background-size: cover;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+}
+
+.transform a,
+.standout a {
+  position: relative;
+  display: inline-block;
+  font-family: var(--Fontfamily2);
+  color: var(--Verydarkblue);
+  text-transform: uppercase;
+  font-weight: 900;
+  padding-left: 10px;
+  transition: all 1s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 15px;
+    width: 130px;
+    height: 4px;
+    background: var(--Yellow);
+    transform: translateX(-5%);
+    transition: all 1s ease-out;
+  }
+
+  &:hover::after {
+    bottom: -4px;
+    left: 20px;
+    height: 5px;
+    width: 150px;
+  }
+
+  &:hover {
+    color: var(--Yellow);
+  }
+}
+
+.standout a {
+  &::after {
+    content: "";
+    background: pink;
+  }
+  &:hover {
+    color: pink;
   }
 }
 
@@ -320,17 +420,35 @@ header {
   display: flex;
 
   .graphicdesign {
-    background-image: url(../images/desktop/image-graphic-design.jpg);
+    overflow: hidden;
+    position: relative;
     background-position: center;
     background-size: cover;
     color: var(--Darkcyantext);
     display: flex;
     flex-direction: column;
     justify-content: end;
-    padding: 5% 5% calc(3px + 3.5%) 5%;
+    /* padding: 5% 5% calc(3px + 3.5%) 5%; */
     width: 50%;
     aspect-ratio: 1/0.83;
     text-align: center;
+    z-index: 2;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url(../images/desktop/image-graphic-design.jpg) no-repeat
+        center center;
+      background-size: cover;
+      z-index: -1;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: scale(1.1);
+    }
 
     h3,
     p {
@@ -342,27 +460,46 @@ header {
       max-width: 350px;
       margin-inline: auto;
       margin-top: 25px;
+      padding-bottom: calc(3px + 3.5%);
     }
   }
 
   .photography {
-    background-image: url(../images/desktop/image-photography.jpg);
+    overflow: hidden;
+    position: relative;
     background-position: center;
     background-size: cover;
     color: var(--Darkbluetext);
     display: flex;
     flex-direction: column;
     justify-content: end;
-    padding: 5% 5% calc(3px + 3.5%) 5%;
+    /* padding: 5% 5% calc(3px + 3.5%) 5%; */
     width: 50%;
     aspect-ratio: 1/0.83;
     text-align: center;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url(../images/desktop/image-photography.jpg) no-repeat center
+        center;
+      background-size: cover;
+      z-index: -1;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: scale(1.1);
+    }
 
     p {
       font-size: 1rem;
       max-width: 350px;
       margin-inline: auto;
       margin-top: 25px;
+      padding-bottom: calc(3px + 3.5%);
     }
   }
 }
@@ -423,26 +560,54 @@ header {
   .image2,
   .image3,
   .image4 {
+    position: relative;
     width: 25%;
     aspect-ratio: 1/1.25;
-    background-position: center;
+    overflow: hidden;
+  }
+
+  .image1::before,
+  .image2::before,
+  .image3::before,
+  .image4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .image1::before {
+    background: url(/images/desktop/image-gallery-milkbottles.jpg) no-repeat
+      center center;
     background-size: cover;
   }
 
-  .image1 {
-    background-image: url(../images/desktop/image-gallery-milkbottles.jpg);
+  .image2::before {
+    background: url(../images/desktop/image-gallery-orange.jpg) no-repeat center
+      center;
+    background-size: cover;
   }
 
-  .image2 {
-    background-image: url(../images/desktop/image-gallery-orange.jpg);
+  .image3::before {
+    background: url(../images/desktop/image-gallery-cone.jpg) no-repeat center
+      center;
+    background-size: cover;
   }
 
-  .image3 {
-    background-image: url(../images/desktop/image-gallery-cone.jpg);
+  .image4::before {
+    background: url(../images/desktop/image-gallery-sugarcubes.jpg) no-repeat
+      center center;
+    background-size: cover;
   }
 
-  .image4 {
-    background-image: url(../images/desktop/image-gallery-sugarcubes.jpg);
+  .image1:hover::before,
+  .image2:hover::before,
+  .image3:hover::before,
+  .image4:hover::before {
+    transform: scale(1.1);
   }
 }
 
@@ -463,8 +628,11 @@ footer {
 
     &:hover {
       filter: brightness(1000);
+      animation: shake 2s;
+      animation-iteration-count: infinite;
     }
   }
+
   .footernav {
     a {
       margin-inline: 25px;
@@ -520,7 +688,7 @@ footer {
 
 .menu.show {
   display: flex;
-  max-height: 300px; /* You can adjust this value */
+  max-height: 300px;
 }
 
 .menu a {
@@ -573,9 +741,10 @@ footer {
       }
     }
 
-    .transform-img {
+    .img-container {
+      overflow: hidden;
+      position: relative;
       width: 100%;
-      min-height: 500px;
       aspect-ratio: 1/0.8;
     }
   }
@@ -607,10 +776,30 @@ footer {
       }
     }
 
-    .standout-img {
+    .img-container {
+      overflow: hidden;
+      position: relative;
       width: 100%;
-      min-height: 500px;
       aspect-ratio: 1/0.8;
+    }
+  }
+
+  .transform a,
+  .standout a {
+    &::after {
+      content: "";
+      bottom: -3px;
+      left: 135px;
+      width: 130px;
+      transform: translateX(100%);
+    }
+
+    &:hover::after {
+      bottom: -4px;
+      left: 115px;
+      height: 5px;
+      width: 150px;
+
     }
   }
 
@@ -620,16 +809,28 @@ footer {
 
     .graphicdesign {
       min-height: 500px;
-      padding: 15px 15px 50px 15px;
       width: 100%;
       aspect-ratio: 1/0.8;
+
+      &:before {
+        content: "";
+        background: url(../images/mobile/image-graphic-design.jpg) no-repeat
+          center center;
+        background-size: cover;
+      }
     }
 
     .photography {
       min-height: 500px;
-      padding: 15px 15px 50px 15px;
       width: 100%;
       aspect-ratio: 1/0.8;
+
+      &:before {
+        content: "";
+        background: url(../images/mobile/image-photography.jpg) no-repeat center
+          center;
+        background-size: cover;
+      }
     }
   }
 
@@ -672,7 +873,7 @@ footer {
   }
 
   .footerimages {
-      flex-wrap: wrap;
+    flex-wrap: wrap;
     .image1,
     .image2,
     .image3,
@@ -683,19 +884,19 @@ footer {
       background-size: cover;
     }
 
-    .image1 {
+    .image1::before {
       background-image: url(../images/mobile/image-gallery-milkbottles.jpg);
     }
 
-    .image2 {
+    .image2::before {
       background-image: url(../images/mobile/image-gallery-orange.jpg);
     }
 
-    .image3 {
+    .image3::before {
       background-image: url(../images/mobile/image-gallery-cone.jpg);
     }
 
-    .image4 {
+    .image4::before {
       background-image: url(../images/mobile/image-gallery-sugar-cubes.jpg);
     }
   }
