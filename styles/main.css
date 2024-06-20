@@ -176,7 +176,7 @@ header {
   }
 
   .arrow {
-    background-image: url(/images/icon-arrow-down.svg);
+    background-image: url(../images/icon-arrow-down.svg);
     height: 200px;
     width: 200px;
     align-self: center;
@@ -222,7 +222,7 @@ header {
   .headerimg {
     position: absolute;
     align-self: center;
-    background-image: url(/images/desktop/image-header.jpg);
+    background-image: url(../images/desktop/image-header.jpg);
     background-position: bottom;
     background-size: cover;
     max-width: 1800px;
@@ -268,7 +268,7 @@ header {
 
   .transform-img {
     width: 50%;
-    background-image: url(/images/desktop/image-transform.jpg);
+    background-image: url(../images/desktop/image-transform.jpg);
     background-position: center;
     background-size: cover;
   }
@@ -310,7 +310,7 @@ header {
 
   .standout-img {
     width: 50%;
-    background-image: url(/images/desktop/image-stand-out.jpg);
+    background-image: url(../images/desktop/image-stand-out.jpg);
     background-position: center;
     background-size: cover;
   }
@@ -320,7 +320,7 @@ header {
   display: flex;
 
   .graphicdesign {
-    background-image: url(/images/desktop/image-graphic-design.jpg);
+    background-image: url(../images/desktop/image-graphic-design.jpg);
     background-position: center;
     background-size: cover;
     color: var(--Darkcyantext);
@@ -346,7 +346,7 @@ header {
   }
 
   .photography {
-    background-image: url(/images/desktop/image-photography.jpg);
+    background-image: url(../images/desktop/image-photography.jpg);
     background-position: center;
     background-size: cover;
     color: var(--Darkbluetext);
@@ -430,19 +430,19 @@ header {
   }
 
   .image1 {
-    background-image: url(/images/desktop/image-gallery-milkbottles.jpg);
+    background-image: url(../images/desktop/image-gallery-milkbottles.jpg);
   }
 
   .image2 {
-    background-image: url(/images/desktop/image-gallery-orange.jpg);
+    background-image: url(../images/desktop/image-gallery-orange.jpg);
   }
 
   .image3 {
-    background-image: url(/images/desktop/image-gallery-cone.jpg);
+    background-image: url(../images/desktop/image-gallery-cone.jpg);
   }
 
   .image4 {
-    background-image: url(/images/desktop/image-gallery-sugarcubes.jpg);
+    background-image: url(../images/desktop/image-gallery-sugarcubes.jpg);
   }
 }
 
@@ -683,19 +683,19 @@ footer {
     }
 
     .image1 {
-      background-image: url(/images/mobile/image-gallery-milkbottles.jpg);
+      background-image: url(../images/mobile/image-gallery-milkbottles.jpg);
     }
 
     .image2 {
-      background-image: url(/images/mobile/image-gallery-orange.jpg);
+      background-image: url(../images/mobile/image-gallery-orange.jpg);
     }
 
     .image3 {
-      background-image: url(/images/mobile/image-gallery-cone.jpg);
+      background-image: url(../images/mobile/image-gallery-cone.jpg);
     }
 
     .image4 {
-      background-image: url(/images/mobile/image-gallery-sugar-cubes.jpg);
+      background-image: url(../images/mobile/image-gallery-sugar-cubes.jpg);
     }
   }
 }
