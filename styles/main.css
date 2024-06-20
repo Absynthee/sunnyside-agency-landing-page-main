@@ -672,6 +672,7 @@ footer {
   }
 
   .footerimages {
+      flex-wrap: wrap;
     .image1,
     .image2,
     .image3,
