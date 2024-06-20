@@ -580,7 +580,7 @@ header {
   }
 
   .image1::before {
-    background: url(/images/desktop/image-gallery-milkbottles.jpg) no-repeat
+    background: url(../images/desktop/image-gallery-milkbottles.jpg) no-repeat
       center center;
     background-size: cover;
   }
