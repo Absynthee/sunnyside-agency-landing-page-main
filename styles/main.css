@@ -200,7 +200,9 @@ html {
 header {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: calc(300px + 32vw);
+  max-height: 100vh;
+  min-height: 800px;
   width: 100%;
   background-color: #3ebfff;
   color: var(--White);
@@ -249,7 +251,8 @@ header {
     z-index: 10;
   }
 
-  nav a {
+  nav a,
+  button {
     margin-left: 50px;
     transition: filter 0.5s;
     &:hover {
@@ -272,9 +275,10 @@ header {
     background-image: url(../images/desktop/image-header.jpg);
     background-position: bottom;
     background-size: cover;
+    background-repeat: no-repeat;
     max-width: 1800px;
     width: 100%;
-    background-repeat: no-repeat;
+    min-height: 800px;
     height: inherit;
   }
 }
